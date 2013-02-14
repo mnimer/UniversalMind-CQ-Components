@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="core-taglib" />
+    <orderEntry type="library" name="Maven: com.squeakysand.jsp:squeakysand-jsp:0.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand:squeakysand-commons:0.4.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-io:commons-io:1.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand.osgi:squeakysand-osgi:0.4.0" level="project" />
+    <orderEntry type="module" module-name="core-services" />
+    <orderEntry type="library" name="Maven: com.cqblueprints.taglib:cqblueprints-taglib:5.5.1" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand.jcr:squeakysand-jcr-taglib:bnd:0.3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand.jcr:squeakysand-jcr:0.3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand.jsp:squeakysand-jsp-taglib:bnd:0.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand.sling:squeakysand-sling-taglib:bnd:0.3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand.sling:squeakysand-sling:0.3.0" level="project" />
+  </component>
+</module>
+

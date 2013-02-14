@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+    <description>A JSP custom Tag Library for use within JSPs in the 'UM Core' project.          During development this bundle can be automatically deployed to your CQ instance by activating the         &amp;quot;auto-deploy&amp;quot; profile and running the Maven &amp;quot;install&amp;quot; lifecycle phase (e.g. &amp;quot;mvn -Pauto-deploy install&amp;quot;). This         can also be done from within most IDEs like Eclipse.</description>
+    <tlib-version>1.0.0-SNAPSHOT</tlib-version>
+    <short-name>core</short-name>
+    <uri>http://core.cq.universalmind.com/taglibs/core-taglib</uri>
+    <tag>
+        <description>Example JSP Custom Tag demonstrating three important concepts:
+ 
+ 1. use of the SqueakySand annotations for auto-generating the Tag Library Descriptor (.tld) file
+ 
+ 2. extending the CqSimpleTagSupport class from the CQ Blueprints library that provides many
+    useful methods to make writing JSP Custom Tags for the CQ platform easier for developers
+ 
+ 3. accessing an OSGI service from within a JSP Custom Tag using one of the methods inherited
+    from the CqSimpleTagSupport class</description>
+        <name>goodbyeWorld</name>
+        <tag-class>com.universalmind.cq.core.taglib.GoodbyeWorldTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag-file>
+        <name>helloWorld</name>
+        <path>/META-INF/tags/helloWorld.tagx</path>
+    </tag-file>
+</taglib>

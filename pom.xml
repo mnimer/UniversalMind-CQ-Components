@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright 2012 Mike Nimer & Universal Mind
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.universalmind.cq</groupId>
+    <artifactId>core-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>${project.groupId} - ${project.artifactId}</name>
+
+    <description>
+        Parent Maven POM for the 'UM Core' project.
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 
+            the following CQ connection properties are the default out-of-the-box CQ settings and are used by all modules in this project.
+            you should override them in your local settings.xml file if your CQ environment is different.
+        -->
+        <cq.host>localhost</cq.host>
+        <cq.port>4502</cq.port>
+        <cq.user>admin</cq.user>
+        <cq.password>admin</cq.password>
+    </properties>
+
+    <scm>
+        <connection><!-- TODO --></connection>
+        <developerConnection><!-- TODO --></developerConnection>
+        <url><!-- TODO --></url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id><!-- TODO --></id>
+            <name><!-- TODO --></name>
+            <url><!-- TODO --></url>
+        </repository>
+        <snapshotRepository>
+            <id><!-- TODO --></id>
+            <name><!-- TODO --></name>
+            <url><!-- TODO --></url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <modules>
+        <module>core-view</module>
+        <module>core-config</module>
+        <module>core-taglib</module>
+        <module>core-content</module>
+		<module>core-services</module>
+        <module>core-all</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.cqblueprints</groupId>
+                <artifactId>cqdependencies</artifactId>
+                <version>5.5.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.squeakysand.jcr</groupId>
+                <artifactId>squeakysand-jcr-taglib</artifactId>
+                <version>0.3.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.squeakysand.jsp</groupId>
+                <artifactId>squeakysand-jsp</artifactId>
+                <version>0.4.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squeakysand.osgi</groupId>
+                <artifactId>squeakysand-osgi</artifactId>
+                <version>0.4.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squeakysand.sling</groupId>
+                <artifactId>squeakysand-sling-taglib</artifactId>
+                <version>0.3.0</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.day.jcr.vault</groupId>
+                    <artifactId>maven-vault-plugin</artifactId>
+                    <version>0.0.10</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.squeakysand.jsp</groupId>
+                    <artifactId>jsptld-maven-plugin</artifactId>
+                    <version>0.4.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>net.sourceforge.maven-taglib</groupId>
+                    <artifactId>maven-taglib-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>2.3.7</version>
+                    <configuration>
+                        <instructions>
+                            <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+                            <Embed-Directory>OSGI-INF/lib</Embed-Directory>
+                            <Embed-Transitive>true</Embed-Transitive>
+                        </instructions>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-scr-plugin</artifactId>
+                    <version>1.7.4</version>
+                    <executions>
+                        <execution>
+                            <id>generate-scr-descriptor</id>
+                            <goals>
+                                <goal>scr</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.4.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <showDeprecation>true</showDeprecation>
+                        <showWarnings>true</showWarnings>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.12</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.sling</groupId>
+                    <artifactId>maven-sling-plugin</artifactId>
+                    <version>2.1.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>eclipse</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <!-- 
+                            this plugin holds configuration information for Maven plugins that the Eclipse m2e plugin does not know how to handle.
+                            it does not affect the actual Maven build process.
+                            you should activate the "eclipse" profile for this project and its sub-modules if you are working in Eclipse as it will remove
+                            some of the error messages you see.
+                         -->
+                        <plugin>
+                            <groupId>org.eclipse.m2e</groupId>
+                            <artifactId>lifecycle-mapping</artifactId>
+                            <version>1.0.0</version>
+                            <configuration>
+                                <lifecycleMappingMetadata>
+                                    <pluginExecutions>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>com.squeakysand.jsp</groupId>
+                                                <artifactId>jsptld-maven-plugin</artifactId>
+                                                <versionRange>[0.3.0,)</versionRange>
+                                                <goals>
+                                                    <goal>generate</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <execute>
+                                                    <runOnIncremental>true</runOnIncremental>
+                                                </execute>
+                                            </action>
+                                        </pluginExecution>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>org.apache.felix</groupId>
+                                                <artifactId>maven-scr-plugin</artifactId>
+                                                <versionRange>[1.7.4,)</versionRange>
+                                                <goals>
+                                                    <goal>scr</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <execute>
+                                                    <runOnIncremental>false</runOnIncremental>
+                                                </execute>
+                                            </action>
+                                        </pluginExecution>
+                                    </pluginExecutions>
+                                </lifecycleMappingMetadata>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

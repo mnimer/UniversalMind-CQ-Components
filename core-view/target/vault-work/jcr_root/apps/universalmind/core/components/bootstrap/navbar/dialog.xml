@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    initTabs="function(){ this.hideTabStripItem(2); this.hideTabStripItem(3); }"
+    manageTabs="function(tab,noSwitch){var tabs=['styleOptions','links','children','static'];var index=tabs.indexOf(tab);if(index==-1) { this.initTabs(); return};for(var i=2;i &lt; tabs.length;i++){if(index==i){this.unhideTabStripItem(i);}else{this.hideTabStripItem(i);}}this.doLayout();if(!noSwitch)this.activate(index);}"
+    title="List"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <styleOptions
+            jcr:primaryType="cq:Widget"
+            title="Style"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <brand
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Brand Label"
+                    name="./brand"
+                    xtype="textfield"/>
+                <collapsable
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}true"
+                    fieldLabel="Navbar Collapsable"
+                    name="./navbarCollapsable"
+                    type="checkbox"
+                    xtype="selection"/>
+                <inverse
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}false"
+                    fieldLabel="Navbar Inverse"
+                    name="./navbarInverse"
+                    type="checkbox"
+                    xtype="selection"/>
+                <fixed
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}false"
+                    fieldLabel="Navbar Fixed (top)"
+                    name="./navbarFixed"
+                    type="checkbox"
+                    xtype="selection"/>
+                <pull
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}false"
+                    fieldLabel="Pull Right"
+                    name="./pullRight"
+                    type="checkbox"
+                    xtype="selection"/>
+                <cssclass
+                    jcr:primaryType="nt:unstructured"
+                    allowBlank="true"
+                    fieldDescription="Additional CSS classes to apply to element"
+                    fieldLabel="CSS Class"
+                    name="./cssClass"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+                <cssstyle
+                    jcr:primaryType="nt:unstructured"
+                    allowBlank="true"
+                    fieldDescription="Additional CSS style string to apply to element"
+                    fieldLabel="CSS Style"
+                    name="./cssStyle"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+            </items>
+        </styleOptions>
+        <links
+            jcr:primaryType="cq:Widget"
+            title="Links"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <listFrom
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Build list using"
+                    name="./listFrom"
+                    type="select"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadContent="function(){this.findParentByType('tabpanel').manageTabs(this.getValue(),true);}"
+                        selectionchanged="function(box,value){box.findParentByType('tabpanel').manageTabs(value);}"/>
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <children
+                            jcr:primaryType="nt:unstructured"
+                            text="Child pages"
+                            value="children"/>
+                        <static
+                            jcr:primaryType="nt:unstructured"
+                            text="Fixed list"
+                            value="static"/>
+                    </options>
+                </listFrom>
+                <limit
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="1"
+                    fieldDescription="Number of sub-menu levels to create"
+                    fieldLabel="Menu Level"
+                    name="./menulevel"
+                    xtype="numberfield"/>
+            </items>
+        </links>
+        <children
+            jcr:primaryType="cq:Widget"
+            title="Child pages"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <parentPage
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Leave empty to use current page"
+                    fieldLabel="Parent page"
+                    name="./parentPage"
+                    xtype="pathfield"/>
+            </items>
+        </children>
+        <static
+            jcr:primaryType="cq:Widget"
+            title="Fixed list"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <pages
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Click the '+' to add a new page"
+                    fieldLabel="Pages"
+                    name="./pages"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        width="155"
+                        xtype="pathfield"/>
+                </pages>
+            </items>
+        </static>
+    </items>
+</jcr:root>

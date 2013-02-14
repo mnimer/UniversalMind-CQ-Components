@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright 2012 Mike Nimer & Universal Mind
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.universalmind.cq</groupId>
+        <artifactId>core-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>core-taglib</artifactId>
+    <packaging>bundle</packaging>
+
+    <name>${project.groupId} - ${project.artifactId}</name>
+
+    <description>
+        A JSP custom Tag Library for use within JSPs in the 'UM Core' project.
+
+        During development this bundle can be automatically deployed to your CQ instance by activating the
+        "auto-deploy" profile and running the Maven "install" lifecycle phase (e.g. "mvn -Pauto-deploy install"). This
+        can also be done from within most IDEs like Eclipse.
+    </description>
+
+    <url>http://core.cq.universalmind.com/taglibs/${project.artifactId}</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>core-services</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.cqblueprints.taglib</groupId>
+            <artifactId>cqblueprints-taglib</artifactId>
+            <version>5.5.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.squeakysand.jcr</groupId>
+            <artifactId>squeakysand-jcr-taglib</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.squeakysand.jsp</groupId>
+            <artifactId>squeakysand-jsp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.squeakysand.osgi</groupId>
+            <artifactId>squeakysand-osgi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.squeakysand.sling</groupId>
+            <artifactId>squeakysand-sling-taglib</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.squeakysand.jsp</groupId>
+                <artifactId>jsptld-maven-plugin</artifactId>
+                <configuration>
+                    <shortName>core</shortName>
+                    <processTagFiles>true</processTagFiles>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Activator>com.universalmind.cq.core.taglib.osgi.Activator</Bundle-Activator>
+                        <Include-Resource>
+                            META-INF/${project.artifactId}-${project.version}.tld=${project.build.outputDirectory}/META-INF/${project.artifactId}-${project.version}.tld,
+                            {maven-resources}
+                        </Include-Resource>
+                        <Sling-Bundle-Resources>
+                            /META-INF/tags
+                        </Sling-Bundle-Resources>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <!--
+                site plugin for generating tag library docs
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <reportPlugins>
+                        <plugin>
+                            <groupId>net.sourceforge.maven-taglib</groupId>
+                            <artifactId>maven-taglib-plugin</artifactId>
+                            <configuration>
+                                <srcDir>${project.build.outputDirectory}/META-INF</srcDir>
+                            </configuration>
+                            <reportSets>
+                                <reportSet>
+                                    <reports>
+                                        <report>tagreference</report>
+                                        <report>taglibdoc</report>
+                                        <report>validate</report>
+                                    </reports>
+                                </reportSet>
+                            </reportSets>
+                        </plugin>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>auto-deploy</id>
+            <build>
+                <plugins>
+                    <!--
+                        Use the sling plugin to automatically deploy the bundle to the JCR tree
+                    -->
+                    <plugin>
+                        <groupId>org.apache.sling</groupId>
+                        <artifactId>maven-sling-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-bundle</id>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                                <configuration>
+                                    <slingUrl>http://${cq.host}:${cq.port}</slingUrl>
+                                    <!-- 
+                                        IMPORTANT: due to an issue with the 2.1.0 version of the maven-sling-plugin, the path specified by the slingUrlSuffix
+                                        parameter below will not be created automatically and so must already exist in your CQ instance BEFORE trying to use the
+                                        auto-deploy profile. See this link for further information:
+                                        http://mail-archives.apache.org/mod_mbox/sling-users/201204.mbox/%3CBD6ED82C-3223-41C2-BF15-C987D7AAFCE3@craigsdickson.com%3E
+                                    -->
+                                    <slingUrlSuffix>/apps/universalmind/core/install</slingUrlSuffix>
+                                    <user>${cq.user}</user>
+                                    <password>${cq.password}</password>
+                                    <usePut>true</usePut>
+                                    <failOnError>true</failOnError>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

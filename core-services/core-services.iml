@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="core-services-1.0.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="com.universalmind.cq.core.services.osgi.Activator" bundleSymbolicName="com.universalmind.cq.core-services" bundleVersion="1.0.0.SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Bundle-Description" value="An OSGi Bundle containing all of the backend CQ service implementations for the 'UM Core' project.During development, this bundle can be automatically deployed to your CQ instance by activating the&quot;auto-deploy&quot; profile and running the Maven &quot;install&quot; lifecycle phase (e.g. &quot;mvn -Pauto-deploy install&quot;). Thiscan also be done from within most IDEs like Eclipse." />
+          <property key="Embed-Dependency" value="*;scope=compile|runtime" />
+          <property key="Embed-Directory" value="OSGI-INF/lib" />
+          <property key="Embed-Transitive" value="true" />
+          <property key="Bundle-Name" value="com.universalmind.cq - core-services" />
+          <property key="Bundle-ClassPath" value=".,OSGI-INF/lib/squeakysand-osgi-0.4.0.jar,OSGI-INF/lib/jsoup-1.6.1.jar,OSGI-INF/lib/commons-lang-2.6.jar,OSGI-INF/lib/squeakysand-commons-0.4.0.jar" />
+          <property key="Include-Resource" value="OSGI-INF/lib/squeakysand-osgi-0.4.0.jar=/Users/mnimer/.m2/repository/com/squeakysand/osgi/squeakysand-osgi/0.4.0/squeakysand-osgi-0.4.0.jar,OSGI-INF/lib/jsoup-1.6.1.jar=/Users/mnimer/.m2/repository/org/jsoup/jsoup/1.6.1/jsoup-1.6.1.jar,OSGI-INF/lib/commons-lang-2.6.jar=/Users/mnimer/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar,OSGI-INF/lib/squeakysand-commons-0.4.0.jar=/Users/mnimer/.m2/repository/com/squeakysand/squeakysand-commons/0.4.0/squeakysand-commons-0.4.0.jar" />
+          <property key="Embedded-Artifacts" value="OSGI-INF/lib/squeakysand-osgi-0.4.0.jar;g=&quot;com.squeakysand.osgi&quot;;a=&quot;squeakysand-osgi&quot;;v=&quot;0.4.0&quot;,OSGI-INF/lib/jsoup-1.6.1.jar;g=&quot;org.jsoup&quot;;a=&quot;jsoup&quot;;v=&quot;1.6.1&quot;,OSGI-INF/lib/commons-lang-2.6.jar;g=&quot;commons-lang&quot;;a=&quot;commons-lang&quot;;v=&quot;2.6&quot;,OSGI-INF/lib/squeakysand-commons-0.4.0.jar;g=&quot;com.squeakysand&quot;;a=&quot;squeakysand-commons&quot;;v=&quot;0.4.0&quot;" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.squeakysand.osgi:squeakysand-osgi:0.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand:squeakysand-commons:0.4.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-io:commons-io:1.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.felix:org.apache.felix.scr.annotations:1.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.6.4" level="project" />
+  </component>
+</module>
+

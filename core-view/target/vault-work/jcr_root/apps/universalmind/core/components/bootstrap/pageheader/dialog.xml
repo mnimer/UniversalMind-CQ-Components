@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <items2
+            jcr:primaryType="nt:unstructured"
+            helpPath="en/cq/current/wcm/default_components.html#Title"
+            title="Styles"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <item1
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="true"
+                    boxLabel="No Decoration"
+                    fieldDescription="If checked, the component is not rendered with automatically generated div and css classes."
+                    fieldLabel="noDecoration"
+                    fieldSubLabel=""
+                    name="./cq:noDecoration"
+                    type="checkbox"
+                    xtype="selection"/>
+                <cssclass
+                    jcr:primaryType="nt:unstructured"
+                    allowBlank="true"
+                    fieldDescription="Additional CSS classes to apply to element"
+                    fieldLabel="CSS Class"
+                    name="./cssClass"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+                <cssstyle
+                    jcr:primaryType="nt:unstructured"
+                    allowBlank="true"
+                    fieldDescription="Additional CSS style string to apply to element"
+                    fieldLabel="CSS Style"
+                    name="./cssStyle"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+            </items>
+        </items2>
+        <items3
+            jcr:primaryType="nt:unstructured"
+            helpPath="en/cq/current/wcm/default_components.html#Title"
+            title="Browser Text (default)"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <item2a
+                    jcr:primaryType="cq:Widget"
+                    label="Responsive Text"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <itemA
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldLabel="Large"
+                            fieldSubLabel="Text for larger displays (browsers)"
+                            name="./largeText"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                        <itemA1
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldLabel="Large SubText"
+                            fieldSubLabel="Subtext for larger displays (browsers)"
+                            name="./largeSubText"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                    </items>
+                </item2a>
+            </items>
+        </items3>
+        <items4
+            jcr:primaryType="nt:unstructured"
+            helpPath="en/cq/current/wcm/default_components.html#Title"
+            title="Tablet Text"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <item2b
+                    jcr:primaryType="cq:Widget"
+                    label="Responsive Text"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <itemB
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldLabel="Medium"
+                            fieldSubLabel="Text for medium displays (tablets)"
+                            name="./mediumText"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                        <itemB1
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldLabel="Medium SubText"
+                            fieldSubLabel="Subtext for medium displays (tablets)"
+                            name="./mediumSubText"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                    </items>
+                </item2b>
+            </items>
+        </items4>
+        <items5
+            jcr:primaryType="nt:unstructured"
+            helpPath="en/cq/current/wcm/default_components.html#Title"
+            title="Phone Text"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <item2c
+                    jcr:primaryType="cq:Widget"
+                    label="Responsive Text"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <itemC
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldLabel="Small"
+                            fieldSubLabel="Text for smaller displays (phones)"
+                            name="./smallText"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                        <itemC1
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldLabel="Small SubText"
+                            fieldSubLabel="Subtext for smaller displays (phones)"
+                            name="./smallSubText"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                    </items>
+                </item2c>
+            </items>
+        </items5>
+    </items>
+</jcr:root>

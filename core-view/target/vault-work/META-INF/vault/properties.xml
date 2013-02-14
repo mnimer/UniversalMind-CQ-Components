@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>com.universalmind.cq - core-view</comment>
+<entry key="createdBy">mnimer</entry>
+<entry key="name">core-view</entry>
+<entry key="created">2013-02-13T17:51:16.483-0600</entry>
+<entry key="groupId">com.universalmind.cq</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.universalmind.cq</entry>
+<entry key="description">All of the CQ component and template definitions for the 'UM Core' project.
+
+        During development, the files in this module should be sync'd to your CQ instance using the FileVault command
+        line tool available with CQ. There is also a plugin for Eclipse called "vaultclipse" that can be used instead
+        of the command line tool.
+
+        It is recommended that this module not contain any Java code and instead Java code should be placed in either
+        the core-taglib module or the core-services module as appropriate.</entry>
+<entry key="artifactId">core-view</entry>
+<entry key="path">/etc/packages/com.universalmind.cq/core-view.zip</entry>
+</properties>
