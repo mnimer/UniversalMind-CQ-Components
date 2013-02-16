@@ -33,6 +33,20 @@
                     name="./pauseHover"
                     type="checkbox"
                     xtype="selection"/>
+                <showControls
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}true"
+                    fieldLabel="Show Controls"
+                    name="./showControls"
+                    type="checkbox"
+                    xtype="selection"/>
+                <showOverlay
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}true"
+                    fieldLabel="Show Overlays"
+                    name="./showOverlay"
+                    type="checkbox"
+                    xtype="selection"/>
                 <showIndicators
                     jcr:primaryType="cq:Widget"
                     defaultValue="{Boolean}true"
@@ -40,48 +54,6 @@
                     name="./showIndicators"
                     type="checkbox"
                     xtype="selection"/>
-                <type
-                    jcr:primaryType="cq:Widget"
-                    defaultValue="{Boolean}false"
-                    fieldLabel="Controls Style"
-                    name="./controlsType"
-                    type="select"
-                    xtype="selection">
-                    <options jcr:primaryType="cq:WidgetCollection">
-                        <o1
-                            jcr:primaryType="nt:unstructured"
-                            text="(default)"
-                            value=""/>
-                        <o2
-                            jcr:primaryType="nt:unstructured"
-                            text="Prev / Next Buttons"
-                            value="pn"/>
-                        <o3
-                            jcr:primaryType="nt:unstructured"
-                            text="Top-Left Switches"
-                            value="tl"/>
-                        <o4
-                            jcr:primaryType="nt:unstructured"
-                            text="Top-Center Switches"
-                            value="tc"/>
-                        <o5
-                            jcr:primaryType="nt:unstructured"
-                            text="Top-Right Switches"
-                            value="tr"/>
-                        <o6
-                            jcr:primaryType="nt:unstructured"
-                            text="Bottom-Left Switches"
-                            value="bl"/>
-                        <o7
-                            jcr:primaryType="nt:unstructured"
-                            text="Bottom-Center Switches"
-                            value="bc"/>
-                        <o8
-                            jcr:primaryType="nt:unstructured"
-                            text="Bottom-Right Switches"
-                            value="br"/>
-                    </options>
-                </type>
             </items>
         </carousel>
         <styleOptions
@@ -216,13 +188,6 @@
                             value="cq:template"/>
                     </options>
                 </orderBy>
-                <limit
-                    jcr:primaryType="cq:Widget"
-                    defaultValue="5"
-                    fieldDescription="Maximum number of items displayed in list"
-                    fieldLabel="Limit"
-                    name="./limit"
-                    xtype="numberfield"/>
             </items>
         </list>
         <children
@@ -239,6 +204,13 @@
                     fieldLabel="Parent page"
                     name="./parentPage"
                     xtype="pathfield"/>
+                <childrenLimit
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="5"
+                    fieldDescription="Maximum number of items displayed in list"
+                    fieldLabel="Limit"
+                    name="./limit"
+                    xtype="numberfield"/>
             </items>
         </children>
         <static
@@ -260,6 +232,13 @@
                         width="155"
                         xtype="pathfield"/>
                 </pages>
+                <pagesLimit
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="5"
+                    fieldDescription="Maximum number of items displayed in list"
+                    fieldLabel="Limit"
+                    name="./limit"
+                    xtype="numberfield"/>
             </items>
         </static>
         <search
@@ -281,6 +260,13 @@
                     fieldLabel="Search query"
                     name="./query"
                     xtype="textfield"/>
+                <searchLimit
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="5"
+                    fieldDescription="Maximum number of items displayed in list"
+                    fieldLabel="Limit"
+                    name="./limit"
+                    xtype="numberfield"/>
             </items>
         </search>
         <querybuilder
@@ -296,6 +282,13 @@
                     fieldLabel="Querybuilder predicate notation"
                     name="./savedquery"
                     xtype="textarea"/>
+                <queryLimit
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="5"
+                    fieldDescription="Maximum number of items displayed in list"
+                    fieldLabel="Limit"
+                    name="./limit"
+                    xtype="numberfield"/>
             </items>
         </querybuilder>
         <container

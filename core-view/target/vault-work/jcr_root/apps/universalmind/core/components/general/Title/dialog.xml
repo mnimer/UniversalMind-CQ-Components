@@ -55,16 +55,16 @@
                     <cssclass
                         jcr:primaryType="nt:unstructured"
                         allowBlank="true"
+                        fieldDescription="Additional CSS classes to apply to element"
                         fieldLabel="CSS Class"
-                        fieldSubLabel="Additional CSS classes to apply to element"
                         name="./cssClass"
                         validateOnBlur="true"
                         xtype="textfield"/>
                     <cssstyle
                         jcr:primaryType="nt:unstructured"
                         allowBlank="true"
+                        fieldDescription="Additional CSS style string to apply to element"
                         fieldLabel="CSS Style"
-                        fieldSubLabel="Additional CSS style string to apply to element"
                         name="./cssStyle"
                         validateOnBlur="true"
                         xtype="textfield"/>

@@ -53,6 +53,7 @@
     <meta http-equiv="keywords" content="<%= xssAPI.encodeForHTMLAttr(keywords) %>" />
     <meta http-equiv="description" content="<%= xssAPI.encodeForHTMLAttr(description) %>" />
 
+    <cq:includeClientLib categories="cq.jquery" />
     <cq:includeClientLib categories="cq.foundation-main"/>
     <cq:includeClientLib css="universalmind.bootstrap" />
 
@@ -77,4 +78,7 @@
     <% currentDesign.writeCssIncludes(pageContext); %>
 
     <cq:include script="/libs/wcm/core/components/init/init.jsp"/>
+
+
+
 </head>

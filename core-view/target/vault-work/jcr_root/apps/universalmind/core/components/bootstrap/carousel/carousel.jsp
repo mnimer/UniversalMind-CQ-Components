@@ -30,18 +30,27 @@
                  com.day.cq.wcm.foundation.List,
                  com.day.text.Text,
                  com.day.cq.wcm.foundation.List,
-                 com.day.cq.wcm.api.PageFilter"
+                 com.day.cq.wcm.api.PageFilter,
+                 com.day.cq.i18n.I18n,
+                 com.day.cq.wcm.foundation.Paragraph,
+                 com.day.cq.wcm.api.components.Toolbar"
         %>
 <%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0" %>
 <cq:includeClientLib css="universalmind.bootstrap" />
 
 <%
     String xs = Doctype.isXHTML(request) ? "/" : "";
-    boolean showControls = properties.get("showControls", true);
-    int containerSlideCount = properties.get("containerSlideCount", 3);
-    Boolean autoPlay = properties.get("autoPlay", true);
     int playSpeed = properties.get("playSpeed", 6000);
+    int containerSlideCount = properties.get("containerSlideCount", 3);
     String listFrom = properties.get("listFrom", "container");
+
+
+    Boolean _autoPlay = properties.get("autoPlay", false);
+    Boolean _showControls = properties.get("showControls", false);
+    Boolean _showIndicators = properties.get("showIndicators", false);
+    Boolean _showOverlay = properties.get("showOverlay", false);
+    Boolean _pauseHover = properties.get("pauseHover", false);
+
 
     // styling
     String _cssClass  = properties.get("cssClass", "");
@@ -54,11 +63,36 @@
     Map<String, Slide> slides = new LinkedHashMap<String, Slide>();
 
 
+    /// add label to edit bar
+    if (editContext != null
+            && WCMMode.fromRequest(request) == WCMMode.EDIT
+            && resource instanceof Paragraph)
+    {
+        Paragraph par = (Paragraph) resource;
+        switch (par.getType()) {
+            case START: {
+                String text = I18n.get(slingRequest, "Carousel", null);
+                editContext.getEditConfig().getToolbar().add(0, new Toolbar.Separator());
+                editContext.getEditConfig().getToolbar().add(0, new Toolbar.Label(text));
+                // disable ordering to get consistent behavior
+                editContext.getEditConfig().setOrderable(false);
+                break;
+            }
+            case END:
+                break;
+            case BREAK:
+                break;
+            case NORMAL:
+                break;
+        }
+    }
+
+
     if (WCMMode.fromRequest(request) == WCMMode.EDIT)
     {
         // set some simple css, to make it easier to edit this component
-        _slideCssStyle = "min-height:300px;background-color:#eee;" + _slideCssStyle;
-        autoPlay = false; // turn off auto play while in edit mode.
+        //_slideCssStyle = "min-height:300px;background-color:#eee;" + _slideCssStyle;
+        _autoPlay = false; // turn off auto play while in edit mode.
     }
 
     List list = new List(slingRequest, new PageFilter());
@@ -98,15 +132,21 @@
     {
 %>
 
-<div id="carousel-${currentNode.identifier}" class="carousel slide <%=_cssClass%>" style="<%=_cssStyle%>" data-interval="${!autoPlay?'false':playSpeed}">
+<div id="carousel-${currentNode.identifier}"
+     class="carousel slide <%=_cssClass%>"
+     style="<%=_cssStyle%>"
+     data-interval="${!_autoPlay?'false':playSpeed}" <%if (_pauseHover){%>data-pause="hover"<%}%>>
+    <% if( _showIndicators ) { %>
     <ol class="carousel-indicators pull-right">
         <c:forEach var="slide" varStatus="loop" items="<%= slides.values() %>">
             <li data-target="#carousel-<%=currentNode.getIdentifier()%>" data-slide-to="${pageScope.loop.index}" class=""></li>
         </c:forEach>
     </ol>
+    <% } %>
+
     <div class="carousel-inner">
         <c:forEach var="slide" varStatus="loop" items="<%= slides.values() %>">
-            <div id="${slide.name}" class="item ${slide.slideIndx==0?'active':''}">
+            <div id="${slide.name}" class="item ${pageScope.loop.index==0?'active':''}">
 
                 <c:choose>
                     <c:when test="${slide.page != null }">
@@ -122,20 +162,23 @@
                             </c:otherwise>
                         </c:choose>
 
+                        <% if( _showOverlay ){%>
                         <div class="carousel-caption">
                             <h4>${slide.title}</h4>
                             <p>${slide.desc}</p>
                             <a href="${slide.path}.html">Read More</a>
                         </div>
-
+                        <%}%>
                     </c:when>
                     <c:otherwise>
                         <div class="<%=_slideCssClass%>" style="<%=_slideCssStyle%>">
                             <cq:include path="${slide.name}" resourceType="foundation/components/parsys"/>
                         </div>
+                        <% if( _showOverlay ){%>
                         <div class="carousel-caption">
                             <cq:include path="${slide.name}-caption" resourceType="foundation/components/parsys"/>
                         </div>
+                        <%}%>
                     </c:otherwise>
                 </c:choose>
 
@@ -143,10 +186,10 @@
         </c:forEach>
     </div>
     <%-- defines the controls --%>
-    <c:if test="<%= showControls %>">
+    <% if( _showControls ) { %>
         <a class="left carousel-control" href="#carousel-<%=currentNode.getIdentifier()%>" data-slide="prev">&lsaquo;</a>
         <a class="right carousel-control" href="#carousel-<%=currentNode.getIdentifier()%>" data-slide="next">&rsaquo;</a>
-    </c:if>
+    <%}%>
 </div>
 
 <%

@@ -53,28 +53,13 @@
     <meta http-equiv="keywords" content="<%= xssAPI.encodeForHTMLAttr(keywords) %>" />
     <meta http-equiv="description" content="<%= xssAPI.encodeForHTMLAttr(description) %>" />
 
+    <cq:includeClientLib categories="cq.jquery" />
     <cq:includeClientLib categories="cq.foundation-main"/>
     <cq:includeClientLib css="universalmind.bootstrap" />
 
-    <!-- find the "design" assigned to this page (or parent page) and tell CQ to include it. -->
-    <%--
-    <%
-        String currentDesignPath = pageProperties.getInherited("cq:designPath", String.class);
-        if (currentDesignPath != null)
-        {
-            Session session = slingRequest.getResourceResolver().adaptTo(Session.class);
-            Node designNode = session.getNode(currentDesignPath);
-            Property categories = designNode.getProperty("categories");
-            for (int i = 0; i < categories.getValues().length; i++)
-            {
-                Value value = categories.getValues()[i];
-                %><%
-            }
-        }
-    %>
-    --%>
-
+    <!-- includde current design -->
     <% currentDesign.writeCssIncludes(pageContext); %>
 
     <cq:include script="/libs/wcm/core/components/init/init.jsp"/>
+
 </head>
