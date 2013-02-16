@@ -1,3 +1,0 @@
-css/bootstrap.css
-#css/bootstrap-paddingfix.css
-#css/bootstrap-responsive.css
