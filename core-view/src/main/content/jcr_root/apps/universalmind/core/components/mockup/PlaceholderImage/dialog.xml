@@ -51,6 +51,10 @@
                                 jcr:primaryType="nt:unstructured"
                                 text="Bears (placebear.com)"
                                 value="placebear.com"/>
+                            <hhhhold
+                                jcr:primaryType="nt:unstructured"
+                                text="Hhhhold (hhhhold.com)"
+                                value="hhhhold.com"/>
                         </options>
                     </listFrom>
                     <prop2
