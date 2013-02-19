@@ -7,7 +7,7 @@
         jcr:primaryType="cq:Widget"
         xtype="tabpanel">
         <items jcr:primaryType="cq:WidgetCollection">
-            <tabHtml
+            <tab1
                 jcr:primaryType="cq:Panel"
                 title="HTML">
                 <items
@@ -17,29 +17,7 @@
                     name="./html"
                     validateOnBlur="true"
                     xtype="textarea"/>
-            </tabHtml>
-            <tabStyle
-                jcr:primaryType="cq:Panel"
-                title="Style">
-                <items jcr:primaryType="cq:WidgetCollection">
-                    <cssclass
-                        jcr:primaryType="nt:unstructured"
-                        allowBlank="true"
-                        fieldDescription="Additional CSS classes to apply to element"
-                        fieldLabel="CSS Class"
-                        name="./cssClass"
-                        validateOnBlur="true"
-                        xtype="textfield"/>
-                    <cssstyle
-                        jcr:primaryType="nt:unstructured"
-                        allowBlank="true"
-                        fieldDescription="Additional CSS style string to apply to element"
-                        fieldLabel="CSS Style"
-                        name="./cssStyle"
-                        validateOnBlur="true"
-                        xtype="textfield"/>
-                </items>
-            </tabStyle>
+            </tab1>
         </items>
     </items>
 </jcr:root>

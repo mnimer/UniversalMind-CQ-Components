@@ -1,5 +1,7 @@
 *.class
+*.vlt
 target
+vault
 
 # Package Files #
 *.jar

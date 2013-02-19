@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="HTML Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Title">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="formatted like: latitude, longitude"
+                        fieldLabel="Map Center"
+                        name="./mapCenter"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <zoomLimit
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="4"
+                        fieldDescription="Starting zoom level"
+                        fieldLabel="Zoom Level"
+                        name="./zoom"
+                        xtype="numberfield"/>
+                    <width
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="100%"
+                        fieldLabel="width"
+                        name="./width"
+                        xtype="textfield"/>
+                    <height
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="300px"
+                        fieldLabel="Height"
+                        name="./height"
+                        xtype="textfield"/>
+                </items>
+            </tab1>
+            <layers
+                jcr:primaryType="cq:Panel"
+                title="Map Layers">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <layerGroup
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="CloudMade link like: http://{s}.tile.cloudmade.com/{api_key}/{styleid}/256/{z}/{x}/{y}.png"
+                        fieldLabel="Map Layers"
+                        name="./layers"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            xtype="textfield"/>
+                    </layerGroup>
+                </items>
+            </layers>
+            <markers
+                jcr:primaryType="cq:Panel"
+                title="Map Markers">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <markerGroup
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription=""
+                        fieldLabel="Map Markers"
+                        name="./markers"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            xtype="textfield"/>
+                    </markerGroup>
+                </items>
+            </markers>
+            <styleOptions
+                jcr:primaryType="cq:Widget"
+                title="Style"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <cssclass
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldDescription="Additional CSS classes to apply to element"
+                        fieldLabel="CSS Class"
+                        name="./cssClass"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <cssstyle
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldDescription="Additional CSS style string to apply to element"
+                        fieldLabel="CSS Style"
+                        name="./cssStyle"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                </items>
+            </styleOptions>
+        </items>
+    </items>
+</jcr:root>
