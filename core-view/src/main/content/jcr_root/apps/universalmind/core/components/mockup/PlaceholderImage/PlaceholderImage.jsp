@@ -43,6 +43,9 @@
 <%} else if( imageService.equalsIgnoreCase("baconmockup.com")){ %>
     <img src="http://baconmockup.com/<%=width%>/<%=height%>" alt="<%=tooltip%>"/>
 
+<%} else if( imageService.equalsIgnoreCase("hhhhold.com")){ %>
+    <img src="http://hhhhold.com/<%=width%>x<%=height%>" alt="<%=tooltip%>"/>
+
 
 <%} else if( imageService.equalsIgnoreCase("placebear.com") && colorType.equalsIgnoreCase("black & white") ){ %>
     <img src="http://placebear.com/g/<%=width%>/<%=height%>" alt="<%=tooltip%>"/>
