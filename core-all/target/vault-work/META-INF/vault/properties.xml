@@ -2,9 +2,9 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>com.universalmind.cq - core-all</comment>
-<entry key="createdBy">mnimer</entry>
+<entry key="createdBy">mikenimer</entry>
 <entry key="name">core-all</entry>
-<entry key="created">2013-02-11T17:03:49.965-0600</entry>
+<entry key="created">2013-02-22T11:43:01.986-0600</entry>
 <entry key="groupId">com.universalmind.cq</entry>
 <entry key="version">1.0.0-SNAPSHOT</entry>
 <entry key="requiresRoot">false</entry>

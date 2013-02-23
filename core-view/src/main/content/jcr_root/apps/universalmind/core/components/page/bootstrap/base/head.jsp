@@ -17,8 +17,8 @@
 <%@ page session="false" %>
 <%@ page import="com.day.cq.commons.Doctype" %>
 <%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
-<%@ page import="com.day.cq.commons.Externalizer"%>
-<%@ page import="com.adobe.granite.xss.*"%>
+<%@ page import="com.day.cq.commons.Externalizer" %>
+<%@ page import="com.adobe.granite.xss.*" %>
 <%@ page import="com.day.text.Text" %>
 <%@ page import="com.day.cq.wcm.api.WCMMode" %>
 <%@ page import="javax.jcr.Session" %>
@@ -33,12 +33,12 @@
 <%
     final Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
 
-    final String title         = currentPage.getTitle() == null ? StringEscapeUtils.escapeHtml4(currentPage.getName()) : StringEscapeUtils.escapeHtml4(currentPage.getTitle());
-    final String canonicalURL  = externalizer.absoluteLink(slingRequest, "http", currentPage.getPath()) + ".html";
-    final String favicon       = currentDesign.getPath() + "/favicon.ico";
-    final boolean hasFavIcon   = (resourceResolver.getResource(favicon) != null);
-    final String keywords      = WCMUtils.getKeywords(currentPage);
-    final String description   = currentPage.getDescription();
+    final String title = currentPage.getTitle() == null ? StringEscapeUtils.escapeHtml4(currentPage.getName()) : StringEscapeUtils.escapeHtml4(currentPage.getTitle());
+    final String canonicalURL = externalizer.absoluteLink(slingRequest, "http", currentPage.getPath()) + ".html";
+    final String favicon = currentDesign.getPath() + "/favicon.ico";
+    final boolean hasFavIcon = (resourceResolver.getResource(favicon) != null);
+    final String keywords = WCMUtils.getKeywords(currentPage);
+    final String description = currentPage.getDescription();
 
 %>
 <%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0" %>
@@ -47,21 +47,43 @@
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title><%= xssAPI.encodeForHTML(title) %></title>
-    <link rel="canonical" href="<%= xssAPI.getValidHref(canonicalURL) %>" />
-    <% if (hasFavIcon) { %><link rel="shortcut icon" href="<%= xssAPI.getValidHref(favicon) %>" /><% } %>
-    <meta http-equiv="keywords" content="<%= xssAPI.encodeForHTMLAttr(keywords) %>" />
-    <meta http-equiv="description" content="<%= xssAPI.encodeForHTMLAttr(description) %>" />
-
-    <cq:includeClientLib categories="cq.foundation-main"/>
-    <cq:includeClientLib css="universalmind.bootstrap" />
-
-    <!-- includde current design -->
-    <% currentDesign.writeCssIncludes(pageContext); %>
+    <title><%= xssAPI.encodeForHTML(title) %>
+    </title>
+    <link rel="canonical" href="<%= xssAPI.getValidHref(canonicalURL) %>"/>
+    <% if (hasFavIcon) { %>
+    <link rel="shortcut icon" href="<%= xssAPI.getValidHref(favicon) %>"/>
+    <% } %>
+    <meta http-equiv="keywords" content="<%= xssAPI.encodeForHTMLAttr(keywords) %>"/>
+    <meta http-equiv="description" content="<%= xssAPI.encodeForHTMLAttr(description) %>"/>
 
     <cq:include script="/libs/wcm/core/components/init/init.jsp"/>
-<<<<<<< .mine
+    <cq:includeClientLib css="universalmind.bootstrap"/>
 
-=======
->>>>>>> .theirs
+    <!-- find the "design" assigned to this page (or parent page) and tell CQ to include it. -->
+
+    <%
+        String currentDesignPath = pageProperties.getInherited("cq:designPath", String.class);
+        if (currentDesignPath != null)
+        {
+            Session session = slingRequest.getResourceResolver().adaptTo(Session.class);
+            Node designNode = session.getNode(currentDesignPath);
+
+
+            if (designNode.hasProperty("categories"))
+            {
+                    Property categories = designNode.getProperty("categories");
+                    for (int i = 0; i < categories.getValues().length; i++)
+                    {
+                        %><cq:includeClientLib categories="<%= categories.getValues()[i].getString() %>"/><%
+                    }
+                } else {
+                    currentDesign.writeCssIncludes(pageContext);
+                }
+            } else {
+                currentDesign.writeCssIncludes(pageContext);
+            }
+    %>
+
+
+
 </head>

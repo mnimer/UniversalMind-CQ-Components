@@ -16,7 +16,7 @@
 <!-- twitter bootstrap hero unit -->
 <%@include file="../../global.jsp"%>
 <%@page session="false" %>
-<cq:includeClientLib css="universalmind.bootstrap" />
+<%--cq:includeClientLib css="universalmind.bootstrap" /--%>
 <div class="hero-unit <%= properties.get("cssClass", "")%>" style="<%= properties.get("cssClass", "")%>">
 
     <% if (properties.get("heading") != null ){ %>

@@ -1,6 +1,6 @@
 <%@include file="../../global.jsp"%>
 <%@page session="false" %>
-<cq:includeClientLib css="universalmind.bootstrap" />
+<%--cq:includeClientLib css="universalmind.bootstrap" /--%>
 <%--
   ~ Copyright 2012 Mike Nimer & Universal Mind
   ~    Licensed under the Apache License, Version 2.0 (the "License");

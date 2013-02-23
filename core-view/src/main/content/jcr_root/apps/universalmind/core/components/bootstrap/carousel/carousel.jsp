@@ -36,7 +36,7 @@
                  com.day.cq.wcm.api.components.Toolbar"
         %>
 <%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0" %>
-<cq:includeClientLib css="universalmind.bootstrap" />
+<%--cq:includeClientLib css="universalmind.bootstrap" /--%>
 
 <%
     String xs = Doctype.isXHTML(request) ? "/" : "";
@@ -65,8 +65,7 @@
 
     /// add label to edit bar
     if (editContext != null
-            && WCMMode.fromRequest(request) == WCMMode.EDIT
-            && resource instanceof Paragraph)
+            && WCMMode.fromRequest(request) == WCMMode.EDIT)
     {
         Paragraph par = (Paragraph) resource;
         switch (par.getType()) {
