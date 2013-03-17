@@ -59,6 +59,110 @@
                 jcr:primaryType="cq:Panel"
                 title="Map Markers">
                 <items jcr:primaryType="cq:WidgetCollection">
+                    <markerType
+                        jcr:primaryType="cq:Widget"
+                        defaultValue=""
+                        fieldLabel="Marker Type"
+                        name="./markerType"
+                        type="select"
+                        xtype="selection">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadcontent="function(){ if( this.value != 'image'){CQ.Ext.getCmp('iconOptions').hide();}  if( this.value != 'circle'){CQ.Ext.getCmp('circleOptions').hide();}}"
+                            selectionchanged="function(box,value){ if( value == 'image' ){ CQ.Ext.getCmp('iconOptions').show();} if( value == 'circle' ){ CQ.Ext.getCmp('circleOptions').show();} }"/>
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <container
+                                jcr:primaryType="nt:unstructured"
+                                text="Default Marker"
+                                value="default"/>
+                            <static
+                                jcr:primaryType="nt:unstructured"
+                                text="Circle"
+                                value="circle"/>
+                        </options>
+                    </markerType>
+                    <iconMarkerGroup
+                        jcr:primaryType="nt:unstructured"
+                        id="iconOptions"
+                        title="Image Marker Options"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <iconPath
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="The URL to the icon image"
+                                fieldLabel="Icon Image"
+                                name="./iconUrl"
+                                width="200"
+                                xtype="pathfield"/>
+                            <iconShadowPath
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="The URL to the icon shadow image. If not specified, no shadow image will be created."
+                                fieldLabel="Icon Shadow Image"
+                                name="./shadowUrl"
+                                width="200"
+                                xtype="pathfield"/>
+                            <iconSize
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="format 'w, h' - Size of the icon image in pixels."
+                                fieldLabel="Icon Size"
+                                name="./iconSize"
+                                xtype="textfield"/>
+                            <iconShadowSize
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="format 'w, h' - Size of the shadow image in pixels."
+                                fieldLabel="Icon Shadow Size"
+                                name="./iconShadowSize"
+                                xtype="textfield"/>
+                            <iconAnchor
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="format 'x, y' - The coordinates of the 'tip' of the icon (relative to its top left corner). The icon will be aligned so that this point is at the marker's geographical location. Centered by default if size is specified, also can be set in CSS with negative margins."
+                                fieldLabel="Icon Anchor"
+                                name="./iconAnchor"
+                                xtype="textfield"/>
+                            <iconShadowAnchor
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="format 'x, y' - The coordinates of the 'tip' of the shadow (relative to its top left corner)"
+                                fieldLabel="Icon Shadow Anchor"
+                                name="./iconShadowAnchor"
+                                xtype="textfield"/>
+                        </items>
+                    </iconMarkerGroup>
+                    <circleMarkerGroup
+                        jcr:primaryType="nt:unstructured"
+                        id="circleOptions"
+                        title="Circle Marker Options"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <circleRadius
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="500"
+                                fieldDescription=""
+                                fieldLabel="Radius"
+                                name="./circleRadius"
+                                xtype="numberfield"/>
+                            <circleColor
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="red"
+                                fieldDescription=""
+                                fieldLabel="Color"
+                                name="./circleColor"
+                                xtype="textfield"/>
+                            <circleFillColor
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="#f03"
+                                fieldDescription=""
+                                fieldLabel="Fill Color"
+                                name="./circleFillColor"
+                                xtype="textfield"/>
+                            <circleFillOpacity
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="0.5"
+                                fieldDescription=""
+                                fieldLabel="Fill Opacity"
+                                name="./circleFillOpacity"
+                                xtype="numberfield"/>
+                        </items>
+                    </circleMarkerGroup>
                     <markerGroup
                         jcr:primaryType="cq:Widget"
                         fieldDescription=""

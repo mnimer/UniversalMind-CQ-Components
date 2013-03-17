@@ -16,8 +16,110 @@
                     grow="true"
                     name="./html"
                     validateOnBlur="true"
-                    xtype="textarea"/>
+                    xtype="richtext">
+                    <rtePlugins jcr:primaryType="nt:unstructured">
+                        <table
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <format
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <lists
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <justify
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <edit
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <styles jcr:primaryType="nt:unstructured"/>
+                        <findreplace
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <paraformat
+                            jcr:primaryType="nt:unstructured"
+                            features="*">
+                            <formats jcr:primaryType="cq:WidgetCollection">
+                                <myP
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Paragraph (p)"
+                                    tag="p"/>
+                                <myh1
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Heading 1 (h1)"
+                                    tag="h1"/>
+                                <myh2
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Heading 2 (h2)"
+                                    tag="h2"/>
+                                <myh3
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Heading 3 (h3)"
+                                    tag="h3"/>
+                                <myh4
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Heading 4 (h4)"
+                                    tag="h4"/>
+                                <myh5
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Heading 5 (h5)"
+                                    tag="h5"/>
+                                <myh6
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Heading 6 (h6)"
+                                    tag="h6"/>
+                                <mySmall
+                                    jcr:primaryType="nt:unstructured"
+                                    description="small"
+                                    tag="small"/>
+                            </formats>
+                        </paraformat>
+                        <subsuperscript
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <misctools
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <links
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <spellcheck
+                            jcr:primaryType="nt:unstructured"
+                            features="*"
+                            invalidStyle="background-color: #ffdddd;"/>
+                        <undo
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                    </rtePlugins>
+                </items>
             </tab1>
+            <styleOptions
+                jcr:primaryType="cq:Widget"
+                title="Style"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <cssclass
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldDescription="Additional CSS classes to apply to element"
+                        fieldLabel="CSS Class"
+                        name="./cssClass"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <cssstyle
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldDescription="Additional CSS style string to apply to element"
+                        fieldLabel="CSS Style"
+                        name="./cssStyle"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                </items>
+            </styleOptions>
         </items>
     </items>
 </jcr:root>

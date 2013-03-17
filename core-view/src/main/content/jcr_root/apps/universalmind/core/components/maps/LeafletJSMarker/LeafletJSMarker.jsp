@@ -27,11 +27,17 @@
     String _markerLng = properties.get("markerLng", "-31.464");
     String _popupHtml = properties.get("popupHtml", String.class);
 
+    // special escape to fix javascript
+    if( _popupHtml != null )
+    {
+        _popupHtml = _popupHtml.replace("\n", " ");
+    }
+
 %>
 <script type="text/javascript">
-    var m<%=currentNode.getIdentifier().hashCode()%> = L.marker([<%=_markerLat%>,<%=_markerLng%>]).addTo(map);
+    var m<%=Math.abs(currentNode.getIdentifier().hashCode())%> = L.marker([<%=_markerLat%>,<%=_markerLng%>]).addTo(map);
     <% if( _popupHtml != null ){%>
-        m<%=currentNode.getIdentifier().hashCode()%>.bindPopup("<%=_popupHtml%>");
+        m<%=Math.abs(currentNode.getIdentifier().hashCode())%>.bindPopup("<%=_popupHtml%>");
     <%}%>
 </script>
 

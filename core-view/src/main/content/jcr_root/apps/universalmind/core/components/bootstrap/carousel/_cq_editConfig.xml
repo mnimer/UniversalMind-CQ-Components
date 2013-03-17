@@ -3,6 +3,9 @@
     cq:dialogMode="floating"
     cq:layout="rollover"
     jcr:primaryType="cq:EditConfig">
+    <cq:listeners
+        jcr:primaryType="cq:EditListenersConfig"
+        afterinsert="REFRESH_PAGE"/>
     <cq:inplaceEditing
         jcr:primaryType="cq:InplaceEditingConfig"
         active="{Boolean}true"

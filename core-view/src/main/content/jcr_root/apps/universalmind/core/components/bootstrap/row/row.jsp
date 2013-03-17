@@ -1,3 +1,4 @@
+<%@ page import="com.day.cq.wcm.api.components.ComponentContext" %>
 <%@include file="../../global.jsp"%>
 <%--cq:includeClientLib css="universalmind.bootstrap" /--%>
 <%--

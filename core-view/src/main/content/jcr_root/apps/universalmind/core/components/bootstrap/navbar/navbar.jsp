@@ -29,7 +29,7 @@
 <%
     Session session = slingRequest.getResourceResolver().adaptTo(Session.class);
 
-    String  brand  =  (String)properties.get("brand", null);
+    String  brand  =  (String)properties.get("brand", "Title");
     Boolean navbarInverse =  properties.get("navbarInverse",  false);
     Boolean navbarFixed =  properties.get("navbarFixed",  false);
     Boolean pullRight =  properties.get("pullRight",  false);
