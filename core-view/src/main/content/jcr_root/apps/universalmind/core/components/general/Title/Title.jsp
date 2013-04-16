@@ -37,8 +37,8 @@
     // escape title
     title = xssAPI.filterHTML(title);
     String titleSize = properties.get("titleSize", String.class);
-    String cssClass = properties.get("cssClass", String.class);
-    String cssStyle = properties.get("cssStyle", String.class);
+    String cssClass = properties.get("cssClass", "");
+    String cssStyle = properties.get("cssStyle", "");
 
 
     // check if we need to compute a diff
@@ -62,10 +62,12 @@
 
 %>
 
-<div class="<%=cssClass%>" style="<%=cssStyle%> border:1px solid; height:50px;" role="heading">
+<div class="<%=cssClass%>" style="<%=cssStyle%> <% if( title==null ){%>height:50px;<%} %>">
     <% if (diffOutput == null) { %>
         <<%=titleSize%>><%= title %></<%=titleSize%>>
-    <% } else { %>
+    <% } else if( titleSize!=null ){ %>
         <<%=titleSize%>><%= diffOutput %></<%=titleSize%>>
+    <% } else { %>
+        <%= diffOutput %>
     <% } %>
 </div>

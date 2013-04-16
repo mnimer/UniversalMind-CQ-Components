@@ -14,6 +14,7 @@
                     jcr:primaryType="nt:unstructured"
                     fieldLabel="HTML"
                     grow="true"
+                    hideLabel="true"
                     name="./html"
                     validateOnBlur="true"
                     xtype="richtext">
@@ -69,10 +70,14 @@
                                     jcr:primaryType="nt:unstructured"
                                     description="Heading 6 (h6)"
                                     tag="h6"/>
-                                <mySmall
+                                <div
                                     jcr:primaryType="nt:unstructured"
-                                    description="small"
-                                    tag="small"/>
+                                    description="Div"
+                                    tag="div"/>
+                                <span
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Span"
+                                    tag="span"/>
                             </formats>
                         </paraformat>
                         <subsuperscript
