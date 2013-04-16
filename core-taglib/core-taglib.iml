@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="core-taglib-1.0.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="com.universalmind.cq.core.taglib.osgi.Activator" bundleSymbolicName="com.universalmind.cq.core-taglib" bundleVersion="1.0.0.SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Bundle-Description" value="A JSP custom Tag Library for use within JSPs in the 'UM Core' project.During development this bundle can be automatically deployed to your CQ instance by activating the&quot;auto-deploy&quot; profile and running the Maven &quot;install&quot; lifecycle phase (e.g. &quot;mvn -Pauto-deploy install&quot;). Thiscan also be done from within most IDEs like Eclipse." />
+          <property key="Include-Resource" value="OSGI-INF/lib/squeakysand-osgi-0.4.0.jar=$MAVEN_REPOSITORY$/com/squeakysand/osgi/squeakysand-osgi/0.4.0/squeakysand-osgi-0.4.0.jar,OSGI-INF/lib/squeakysand-jsp-0.4.0.jar=$MAVEN_REPOSITORY$/com/squeakysand/jsp/squeakysand-jsp/0.4.0/squeakysand-jsp-0.4.0.jar,OSGI-INF/lib/squeakysand-commons-0.4.0.jar=$MAVEN_REPOSITORY$/com/squeakysand/squeakysand-commons/0.4.0/squeakysand-commons-0.4.0.jar,META-INF/core-taglib-1.0.0-SNAPSHOT.tld=$MODULE_DIR$/target/classes/META-INF/core-taglib-1.0.0-SNAPSHOT.tld,META-INF/tags/helloWorld.tagx=$MODULE_DIR$/src/main/resources/META-INF/tags/helloWorld.tagx" />
+          <property key="Sling-Bundle-Resources" value="/META-INF/tags" />
+          <property key="Embed-Dependency" value="*;scope=compile|runtime" />
+          <property key="Embed-Directory" value="OSGI-INF/lib" />
+          <property key="Embed-Transitive" value="true" />
+          <property key="Bundle-Name" value="com.universalmind.cq - core-taglib" />
+          <property key="Bundle-ClassPath" value=".,OSGI-INF/lib/squeakysand-osgi-0.4.0.jar,OSGI-INF/lib/squeakysand-jsp-0.4.0.jar,OSGI-INF/lib/squeakysand-commons-0.4.0.jar" />
+          <property key="Embedded-Artifacts" value="OSGI-INF/lib/squeakysand-osgi-0.4.0.jar;g=&quot;com.squeakysand.osgi&quot;;a=&quot;squeakysand-osgi&quot;;v=&quot;0.4.0&quot;,OSGI-INF/lib/squeakysand-jsp-0.4.0.jar;g=&quot;com.squeakysand.jsp&quot;;a=&quot;squeakysand-jsp&quot;;v=&quot;0.4.0&quot;,OSGI-INF/lib/squeakysand-commons-0.4.0.jar;g=&quot;com.squeakysand&quot;;a=&quot;squeakysand-commons&quot;;v=&quot;0.4.0&quot;" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
