@@ -1,10 +1,21 @@
 *.class
 vlt
 .vlt
-target
-vault
+target/
+vault/
 
 # Package Files #
 *.jar
 *.war
 *.ear
+
+
+# IntelliJ files
+.idea/
+*.iml
+*.iws
+log/
+atlassian-ide-plugin.xml
+
+# OSX files
+.DS_Store
