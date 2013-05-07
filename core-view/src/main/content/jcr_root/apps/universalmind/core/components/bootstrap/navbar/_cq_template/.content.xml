@@ -2,7 +2,7 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     cq:noDecoration="{Boolean}true"
     jcr:primaryType="nt:unstructured"
-    brand=""
+    brand="Page Title"
     navbarCollapsable="{Boolean}true"
-    navbarFixed="{Boolean}true"
+    navbarFixed="{Boolean}false"
     navbarInverse="{Boolean}true"/>

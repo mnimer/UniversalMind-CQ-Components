@@ -5,62 +5,64 @@
     <items
         jcr:primaryType="nt:unstructured"
         xtype="tabpanel">
-        <items
-            jcr:primaryType="nt:unstructured"
-            helpPath="en/cq/current/wcm/default_components.html#Title"
-            title="Title Component"
-            xtype="panel">
-            <items jcr:primaryType="cq:WidgetCollection">
-                <prop8
-                    jcr:primaryType="cq:Widget"
-                    allowBlank="true"
-                    boxLabel="Is Container"
-                    fieldDescription="If checked, the component allows you to include other components in the Hero Unit."
-                    fieldLabel="isContainer"
-                    fieldSubLabel=""
-                    name="./cq:isContainer"
-                    type="checkbox"
-                    xtype="selection"/>
-                <prop5
-                    jcr:primaryType="nt:unstructured"
-                    allowBlank="true"
-                    fieldLabel="Heading"
-                    name="./heading"
-                    selectOnFocus="true"
-                    validateOnBlur="true"
-                    xtype="textfield"/>
-                <prop9
-                    jcr:primaryType="nt:unstructured"
-                    allowBlank="true"
-                    fieldLabel="Tagline"
-                    name="./tagline"
-                    validateOnBlur="true"
-                    xtype="textarea"/>
+        <items jcr:primaryType="cq:WidgetCollection">
+            <items
+                jcr:primaryType="nt:unstructured"
+                helpPath="en/cq/current/wcm/default_components.html#Title"
+                title="Text"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <prop5
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldLabel="Heading"
+                        name="./heading"
+                        selectOnFocus="true"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <prop9
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldLabel="Tagline"
+                        name="./tagline"
+                        validateOnBlur="true"
+                        xtype="textarea"/>
+                    <prop8
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="true"
+                        boxLabel="Is Container"
+                        fieldDescription="If checked, the component allows you to include other components in the Hero Unit."
+                        fieldLabel="Is Container"
+                        fieldSubLabel=""
+                        name="./cq:isContainer"
+                        type="checkbox"
+                        xtype="selection"/>
+                </items>
             </items>
+            <style
+                jcr:primaryType="nt:unstructured"
+                helpPath="en/cq/current/wcm/default_components.html#Title"
+                title="Style"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <prop13
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldDescription="Additional CSS classes to apply to element"
+                        fieldLabel="CSS Class"
+                        name="./cssClass"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <prop14
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldDescription="Additional CSS style attributes to apply to element"
+                        fieldLabel="CSS Style"
+                        name="./cssStyle"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                </items>
+            </style>
         </items>
-        <tab2
-            jcr:primaryType="nt:unstructured"
-            helpPath="en/cq/current/wcm/default_components.html#Title"
-            title="Title Component"
-            xtype="panel">
-            <items jcr:primaryType="cq:WidgetCollection">
-                <prop13
-                    jcr:primaryType="nt:unstructured"
-                    allowBlank="true"
-                    fieldDescription="Additional CSS classes to apply to element"
-                    fieldLabel="CSS Class"
-                    name="./cssClass"
-                    validateOnBlur="true"
-                    xtype="textfield"/>
-                <prop14
-                    jcr:primaryType="nt:unstructured"
-                    allowBlank="true"
-                    fieldDescription="Additional CSS style attributes to apply to element"
-                    fieldLabel="CSS Style"
-                    name="./cssStyle"
-                    validateOnBlur="true"
-                    xtype="textfield"/>
-            </items>
-        </tab2>
     </items>
 </jcr:root>

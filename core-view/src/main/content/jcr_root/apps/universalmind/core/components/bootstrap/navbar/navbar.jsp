@@ -9,6 +9,7 @@
 <%@ page import="com.day.cq.wcm.api.Page" %>
 <%@ page import="org.apache.jackrabbit.commons.iterator.NodeIteratorAdapter" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.day.cq.wcm.api.WCMMode" %>
 <%--cq:includeClientLib css="universalmind.bootstrap" /--%>
 <%--
   ~ Copyright 2012 Mike Nimer & Universal Mind
@@ -29,11 +30,11 @@
 <%
     Session session = slingRequest.getResourceResolver().adaptTo(Session.class);
 
-    String  brand  =  (String)properties.get("brand", "Title");
+    String  brand  =  (String)properties.get("brand", String.class);
     Boolean navbarInverse =  properties.get("navbarInverse",  false);
     Boolean navbarFixed =  properties.get("navbarFixed",  false);
     Boolean pullRight =  properties.get("pullRight",  false);
-    Boolean navbarCollapsable =  properties.get("navbarCollapsable",  true);
+    Boolean navbarCollapsable =  properties.get("navbarCollapsable",  false);
     String  cssClass  =  (String)properties.get("cssClass",  "");
     String  cssStyle  =  (String)properties.get("cssStyle",  "");
     String  listFrom  =  (String)properties.get("listFrom");
@@ -76,7 +77,16 @@
 
         childNodeIterator = new NodeIteratorAdapter(nodeList);
     }
+
+    boolean isEdit = WCMMode.fromRequest(request) == WCMMode.EDIT;
+    //boolean isDesign = WCMMode.fromRequest(request) == WCMMode.DESIGN;
+
+    if( isEdit )
+    {
+        //out.write("EDIT MODE");
+    }
 %>
+
 
 
 <div class="<%=cssClasses%>" style="<%=cssStyle%>">
@@ -98,7 +108,7 @@
                 <a class="brand" href="<%=home%>.html"><%=brand%></a>
             <%}%>
 
-            <div class="nav-collapse  <%if( navbarCollapsable ){ %>collapse<%}%>" role=”navigation”>
+            <div class="<%if( navbarCollapsable ){ %>nav-collapse  collapse<%}%>" role=”navigation”>
                 <ul class="nav <%= pullRight? "pull-right": "" %>" >
                     <% if( childNodeIterator != null )
                     {

@@ -1,4 +1,8 @@
 <%@ page import="com.day.cq.wcm.api.WCMMode" %>
+<%@include file="../../global.jsp"%>
+<%@ page session="false" %>
+<%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0" %>
+<cq:defineObjects/>
 <%--
   ~ Copyright 2012 Mike Nimer & Universal Mind
   ~    Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,32 +17,21 @@
   ~    See the License for the specific language governing permissions and
   ~    limitations under the License.
   --%>
-
-<%--
-
-  HTML component.
-
-  HTML component that allows for free text html on a page
-
---%>
-<%@include file="../../global.jsp"%>
-<%@page session="false" %>
-<%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0" %>
-<cq:defineObjects/><%
-%><%
-    String  html  =  properties.get("html",  "");
-    String  cssClass =  properties.get("cssClass",  "");
-    String  cssStyle  =  properties.get("cssStyle",  "");
+<%
+    Integer listSize = properties.get("listSize", 1);
+    String cssClass = properties.get("cssClass", "component-list");
+    String cssStyle = properties.get("cssStyle", "");
 
     // 1st default edit mode
     if( WCMMode.fromRequest(request) == WCMMode.EDIT )
     {
-        if( html.length() == 0 )
-        {
-            html = "{HTML}";
-        }
-        cssStyle += "min-height:100px";
+        cssStyle += "min-height:100px; min-width:100px;";
     }
-
 %>
-<div class="<%=cssClass%>" style="<%=cssStyle%>"><%= html %></div>
+
+
+<ul class="<%=cssClass%>" style="<%=cssStyle%>">
+    <% for(int i=0; i< listSize; i++) { %>
+    <li><cq:include path="<%="container_" + i%>" resourceType="foundation/components/parsys"/></li>
+    <% } %>
+</ul>

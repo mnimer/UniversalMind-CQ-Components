@@ -9,6 +9,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="core-services" />
+    <orderEntry type="library" name="Maven: com.squeakysand.osgi:squeakysand-osgi:0.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squeakysand:squeakysand-commons:0.4.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-io:commons-io:1.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.11" level="project" />
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.2.2" level="project" />
@@ -18,13 +25,6 @@
     <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="module" module-name="core-taglib" />
     <orderEntry type="library" name="Maven: com.squeakysand.jsp:squeakysand-jsp:0.4.0" level="project" />
-    <orderEntry type="library" name="Maven: com.squeakysand:squeakysand-commons:0.4.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-io:commons-io:1.4" level="project" />
-    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
-    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.6.1" level="project" />
-    <orderEntry type="library" name="Maven: com.squeakysand.osgi:squeakysand-osgi:0.4.0" level="project" />
-    <orderEntry type="module" module-name="core-services" />
     <orderEntry type="library" name="Maven: com.cqblueprints.taglib:cqblueprints-taglib:5.5.1" level="project" />
     <orderEntry type="library" name="Maven: com.squeakysand.jcr:squeakysand-jcr-taglib:bnd:0.3.0" level="project" />
     <orderEntry type="library" name="Maven: com.squeakysand.jcr:squeakysand-jcr:0.3.0" level="project" />

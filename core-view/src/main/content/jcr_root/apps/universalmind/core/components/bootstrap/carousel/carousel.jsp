@@ -63,7 +63,7 @@
     Map<String, Slide> slides = new LinkedHashMap<String, Slide>();
 
 
-    /// add label to edit bar
+    /// add label to edit bar //todo: can I remove this.
     if (editContext != null
             && WCMMode.fromRequest(request) == WCMMode.EDIT)
     {

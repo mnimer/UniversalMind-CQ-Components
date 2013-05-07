@@ -1,3 +1,4 @@
+<%@ page import="com.day.cq.wcm.api.WCMMode" %>
 <%@include file="../../global.jsp"%>
 <%@page session="false" %>
 <%--cq:includeClientLib css="universalmind.bootstrap" /--%>
@@ -19,53 +20,78 @@
 <!--
 http://www.splatf.com/2013/01/responsive-design-text/
 -->
-
 <%
-    String largeText = "";
-    String largeSubText = "";
-    String mediumText = "";
-    String mediumSubText = "";
-    String smallText = "";
-    String smallSubText = "";
+    String _largeText = "";
+    String _largeSubText = "";
+    String _mediumText = "";
+    String _mediumSubText = "";
+    String _smallText = "";
+    String _smallSubText = "";
+    String cssStyle = properties.get("cssStyle", "");
+    String cssClass = properties.get("cssClass", "");
+    String largeText = properties.get("largeText", String.class);
+    String largeSubText = properties.get("largeSubText", String.class);
+    String mediumText = properties.get("mediumText", String.class);
+    String mediumSubText = properties.get("mediumSubText", String.class);
+    String smallText = properties.get("smallText", String.class);
+    String smallSubText = properties.get("smallSubText", String.class);
 
-    if (properties.get("largeText") != null )
+    if (largeText != null )
     {
-        largeText = (String)properties.get("largeText");
+        _largeText = largeText;
     }
-    if (properties.get("largeSubText") != null )
+    if (largeSubText != null )
     {
-        largeSubText = (String)properties.get("largeSubText");
+        _largeSubText = largeSubText;
     }
     // default the other two, to the large in case they are null
-    mediumText = largeText;
-    smallText = largeText;
+    mediumText = _largeText;
+    smallText = _largeText;
 
-    if (properties.get("mediumText") != null )
+    if (mediumText != null )
     {
-        mediumText = (String)properties.get("mediumText");
+        _mediumText = mediumText;
     }
-    if (properties.get("mediumSubText") != null )
+    if (mediumSubText != null )
     {
-        mediumSubText = (String)properties.get("mediumSubText");
+        _mediumSubText = mediumSubText;
     }
-    if (properties.get("smallText") != null )
+    if (smallText != null )
     {
-        smallText = (String)properties.get("smallText");
+        _smallText = smallText;
     }
-    if (properties.get("smallSubText") != null )
+    if (smallSubText != null )
     {
-        smallSubText = (String)properties.get("smallSubText");
+        _smallSubText = smallSubText;
+    }
+
+    if( WCMMode.fromRequest(request) == WCMMode.EDIT )
+    {
+        cssStyle += "min-height:50px;";
+
+        if( _largeText.length() == 0 )
+        {
+            _largeText = "{HEADER}";
+        }
+        if( _mediumText.length() == 0 )
+        {
+            _mediumText = "{HEADER}";
+        }
+        if( _smallText.length() == 0 )
+        {
+            _smallText = "{HEADER}";
+        }
     }
 %>
 
 
-<div class="page-header visible-desktop <%=properties.get("cssClass", "")%>" style="<%=properties.get("cssStyle", "")%>">
-    <h1><%=largeText%> <small><%=largeSubText%></small></h1>
+<div class="page-header visible-desktop <%=cssClass%>" style="<%=cssStyle%>">
+    <h1><%=_largeText%> <small><%=_largeSubText%></small></h1>
 </div>
-<div class="page-header visible-tablet <%=properties.get("cssClass", "")%>" style="<%=properties.get("cssStyle", "")%>">
-    <h1><%=mediumText%> <small><%=mediumSubText%></small></h1>
+<div class="page-header visible-tablet <%=cssClass%>" style="<%=cssStyle%>">
+    <h1><%=_mediumText%> <small><%=_mediumSubText%></small></h1>
 </div>
-<div class="page-header visible-phone <%=properties.get("cssClass", "")%>" style="<%=properties.get("cssStyle", "")%>">
-    <h1><%=smallText%> <small><%=smallSubText%></small></h1>
+<div class="page-header visible-phone <%=cssClass%>" style="<%=cssStyle%>">
+    <h1><%=_smallText%> <small><%=_smallSubText%></small></h1>
 </div>
 

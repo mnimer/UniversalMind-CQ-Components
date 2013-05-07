@@ -74,6 +74,25 @@
                         xtype="textfield"/>
                 </items>
             </tab1>
+
+
+            <dataAttributes
+                    jcr:primaryType="cq:Widget"
+                    title="Data Attributes"
+                    xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <dataElements
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Additional 'data-' elements to add to this component"
+                            fieldLabel="Data- Attributes "
+                            name="./dataAttributes"
+                            xtype="multifield">
+                        <fieldConfig
+                                jcr:primaryType="cq:Widget"
+                                xtype="dataAttributeMultifield"/>
+                    </dataElements>
+                </items>
+            </dataAttributes>
         </items>
     </items>
 </jcr:root>

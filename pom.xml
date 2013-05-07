@@ -37,7 +37,7 @@
             the following CQ connection properties are the default out-of-the-box CQ settings and are used by all modules in this project.
             you should override them in your local settings.xml file if your CQ environment is different.
         -->
-        <cq.host>localhost</cq.host>
+        <cq.host>ec2-54-224-2-122.compute-1.amazonaws.com</cq.host>
         <cq.port>4502</cq.port>
         <cq.user>admin</cq.user>
         <cq.password>admin</cq.password>
@@ -100,6 +100,18 @@
                 <groupId>com.squeakysand.sling</groupId>
                 <artifactId>squeakysand-sling-taglib</artifactId>
                 <version>0.3.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.day.cq.wcm</groupId>
+                <artifactId>cq-wcm-foundation</artifactId>
+                <version>5.6.2</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.day.cq</groupId>
+                <artifactId>cq-commons</artifactId>
+                <version>5.6.2</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>
