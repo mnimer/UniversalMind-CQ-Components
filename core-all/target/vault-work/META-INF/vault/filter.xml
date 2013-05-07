@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<workspaceFilter version="1.0">
-    <filter root="/apps/universalmind/core/install/core-services-1.0.0-SNAPSHOT.jar" />
-    <filter root="/apps/universalmind/core/install/core-taglib-1.0.0-SNAPSHOT.jar" />
-    <filter root="/etc/packages/com.universalmind.cq/core-config-1.0.0-SNAPSHOT.zip" />
-    <filter root="/etc/packages/com.universalmind.cq/core-view-1.0.0-SNAPSHOT.zip" />
-    <filter root="/etc/packages/com.cqblueprints.taglib/cqblueprints-taglib-all-5.5.1.zip" />
-</workspaceFilter>
