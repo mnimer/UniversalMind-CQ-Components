@@ -248,6 +248,31 @@
 
     <profiles>
         <profile>
+            <id>remote-CQ</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <cq.host>ec2-54-224-2-122.compute-1.amazonaws.com</cq.host>
+                <cq.port>4502</cq.port>
+                <cq.user>admin</cq.user>
+                <cq.password>admin</cq.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>local-CQ</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <cq.host>localhost</cq.host>
+                <cq.port>4502</cq.port>
+                <cq.user>admin</cq.user>
+                <cq.password>admin</cq.password>
+            </properties>
+        </profile>
+
+        <profile>
             <id>eclipse</id>
             <build>
                 <pluginManagement>
