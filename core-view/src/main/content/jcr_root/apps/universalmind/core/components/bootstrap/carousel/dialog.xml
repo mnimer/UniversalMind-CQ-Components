@@ -146,7 +146,7 @@
                     <options jcr:primaryType="cq:WidgetCollection">
                         <container
                             jcr:primaryType="nt:unstructured"
-                            text="Component Container (parsys)"
+                            text="Component Containers (parsys)"
                             value="container"/>
                         <children
                             jcr:primaryType="nt:unstructured"
@@ -156,14 +156,6 @@
                             jcr:primaryType="nt:unstructured"
                             text="Fixed list"
                             value="static"/>
-                        <search
-                            jcr:primaryType="nt:unstructured"
-                            text="Search"
-                            value="search"/>
-                        <querybuilder
-                            jcr:primaryType="nt:unstructured"
-                            text="Advanced Search"
-                            value="querybuilder"/>
                     </options>
                 </listFrom>
                 <orderBy

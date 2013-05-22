@@ -39,11 +39,6 @@
                     fieldLabel="Link to"
                     name="./linkURL"
                     xtype="pathfield"/>
-                <description
-                    jcr:primaryType="cq:Widget"
-                    fieldLabel="Description"
-                    name="./jcr:description"
-                    xtype="textarea"/>
                 <size
                     jcr:primaryType="cq:Widget"
                     fieldLabel="Size"
@@ -57,23 +52,76 @@
             title="Style"
             xtype="panel">
             <items jcr:primaryType="cq:WidgetCollection">
-                <cssclass
+                <adaptiveImage
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Warning: this does not support images with transparent backgrounds"
+                    fieldLabel="Adaptive Image"
+                    name="./isAdaptive"
+                    xtype="checkbox"/>
+                <containerStyle
                     jcr:primaryType="nt:unstructured"
-                    allowBlank="true"
-                    fieldDescription="Additional CSS classes to apply to element"
-                    fieldLabel="CSS Class"
-                    name="./cssClass"
-                    validateOnBlur="true"
-                    xtype="textfield"/>
-                <cssstyle
+                    title="Container Styles"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <cssclass
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldDescription="Additional CSS classes to apply to element"
+                            fieldLabel="CSS Class"
+                            name="./cssClass"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                        <cssstyle
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldDescription="Additional CSS style string to apply to element"
+                            fieldLabel="CSS Style"
+                            name="./cssStyle"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                    </items>
+                </containerStyle>
+                <imageStyle
                     jcr:primaryType="nt:unstructured"
-                    allowBlank="true"
-                    fieldDescription="Additional CSS style string to apply to element"
-                    fieldLabel="CSS Style"
-                    name="./cssStyle"
-                    validateOnBlur="true"
-                    xtype="textfield"/>
+                    title="Image Styles"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <imagecssclass
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldDescription="Additional CSS classes to apply to element"
+                            fieldLabel="CSS Class"
+                            name="./imageCssClass"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                        <imagecssstyle
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="true"
+                            fieldDescription="Additional CSS style string to apply to element"
+                            fieldLabel="CSS Style"
+                            name="./imageCssStyle"
+                            validateOnBlur="true"
+                            xtype="textfield"/>
+                    </items>
+                </imageStyle>
             </items>
         </styleOptions>
+        <dataAttribs
+            jcr:primaryType="cq:Widget"
+            title="data- Attributes"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <dataElements
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Additional 'data-' elements to add to this component"
+                    fieldLabel="Data- Attributes "
+                    name="./dataAttributes"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        xtype="dataAttributeMultifield"/>
+                </dataElements>
+            </items>
+        </dataAttribs>
     </items>
 </jcr:root>

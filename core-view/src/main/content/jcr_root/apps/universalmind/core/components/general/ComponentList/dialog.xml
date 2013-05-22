@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="HTML Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="List">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <listSize
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="3"
+                        fieldDescription="Number of list elements to show"
+                        fieldLabel="List Size"
+                        name="./listSize"
+                        xtype="numberfield"/>
+                </items>
+            </tab1>
+            <styleOptions
+                jcr:primaryType="cq:Widget"
+                title="Style"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <cssclass
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldDescription="Additional CSS classes to apply to element"
+                        fieldLabel="CSS Class"
+                        name="./cssClass"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <cssstyle
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        fieldDescription="Additional CSS style string to apply to element"
+                        fieldLabel="CSS Style"
+                        name="./cssStyle"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                </items>
+            </styleOptions>
+        </items>
+    </items>
+</jcr:root>
